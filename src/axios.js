@@ -2,6 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
   baseURL: "https://user-management-system-backend-ext0.onrender.com",
+  // baseURL: "http://localhost:5000" //For Local Environment
 });
 
 instance.interceptors.request.use((req) => {
