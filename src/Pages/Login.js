@@ -1,3 +1,4 @@
+// Required Imports
 import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom"
 import validate from '../validate';
@@ -6,21 +7,23 @@ import {faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import axios from '../axios';
 
+// Main Component
 const Login = () => {
     const navigator = useNavigate();
-    const [form, setForm] = useState({
+    const [form, setForm] = useState({  //state to store form data
         login_id: "",
         password: ""
     });
-    const [error, setError] = useState({
+    const [error, setError] = useState({  //state for inline validation errors
         login_id: false,
         login_idError: false,
         password: false,
         passwordError: true
     })
-    const [show, setShow] = useState(false)
-
-    const handleChange = (e)=>{
+    const [show, setShow] = useState(false)  //state for password eye functionality
+ 
+    // Function to handle changes on fields
+    const handleChange = (e)=>{       
       const {name, value} = e.target;
     setForm((prev)=>{
        return {...prev, [name]: value}
@@ -31,6 +34,7 @@ const Login = () => {
     })
     }
 
+    // Function submit data to backend
     const handleSubmit = async (e) => {
         e.preventDefault();
         let submitable = true;
