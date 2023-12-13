@@ -66,7 +66,7 @@ const Login = () => {
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
   <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Login</h2>
+    <h2 className="mb-4 text-center text-indigo-700 text-2xl font-bold md:mb-8 lg:text-3xl">Login</h2>
 
     <form className="mx-auto max-w-lg rounded-lg border" onSubmit={handleSubmit}>
 
@@ -86,7 +86,7 @@ const Login = () => {
           {error.password && error.passwordError&& <p className='text-red-500'>{error.passwordError}</p>}
         </div>
 
-        <button className="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base">Log in</button>
+        <button className="block rounded-lg bg-indigo-700 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-gray-600 md:text-base">Log in</button>
         </div>
     </form>
   </div>

@@ -3,6 +3,7 @@ import Login from "./Pages/Login";
 import Users from "./Pages/Users";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/users" element={<Users />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
