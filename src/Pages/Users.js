@@ -20,7 +20,6 @@ const Users = () => {
       .post("/getusers", { token: access_token })
       .then((res) => {
         if (!res.data.error) {
-          console.log(res.data)
           setUsers(res.data);
         } else {
           toast.error(res.data.error);
@@ -60,15 +59,16 @@ const Users = () => {
   return (
     <section className="text-grey-600 body-font relative">
   <div className="container p-5 mx-auto">
-  <header class="body-font">
-  <div class="container mx-auto flex justify-between flex-wrap px-5 py-2 flex-col md:flex-row items-center">
+  <header className="body-font">
+  <div className="container mx-auto flex justify-between flex-wrap px-5 py-2 flex-col md:flex-row items-center">
     <h1 className="text-indigo-600 font-extrabold">Customer List</h1>
-    <button class="inline-flex text-white items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-400 rounded text-base mt-4 md:mt-0" onClick={()=>{setShowForm(!showform); setType("create")}}>Add Customer
+    <button className="inline-flex text-white items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-400 rounded text-base mt-4 md:mt-0" onClick={()=>{setShowForm(!showform); setType("create")}}>Add Customer
      <FontAwesomeIcon icon={faUser} className="mx-3"/>
     </button>
-    <button class="inline-flex text-white items-center bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-400 rounded text-base mt-4 md:mt-0" onClick={()=>{
+    <button className="inline-flex text-white items-center bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-400 rounded text-base mt-4 md:mt-0" onClick={()=>{
       access_token = null;
      navigator("/")
+     toast.success("Logout Successful")
     }}>Log Out
      <FontAwesomeIcon icon={faSignOut} className="mx-3"/>
     </button>
@@ -109,7 +109,7 @@ const Users = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => {
+              {users.length> 0 && users.map((user) => {
                 return (
                   <tr>
                     <td className="px-4 py-3">{user.first_name}</td>

@@ -49,7 +49,8 @@ const Login = () => {
           axios.post('/login', form)
           .then((res)=>{
             if(res.data.access_token){
-              navigator('/users', {state: res.data})              
+              navigator('/users', {state: res.data})   
+              toast.success("Login Successful")           
             }else{
               toast.error(res.data.error)
             }
